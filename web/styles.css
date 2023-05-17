@@ -1,0 +1,51 @@
+html {
+  box-sizing: border-box;
+  background: #EEEEEE;
+  font-family: -apple-system, "Helvetica Neue", "Helvetica", sans-serif;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+label {
+  font-size: x-large;
+  padding: 0;
+  margin: 0;
+}
+
+.form__row {
+  display: block;
+  padding: 15px;
+}
+
+.form__row__textarea {
+  font-size: inherit;
+  min-width: 100%;
+  min-height: 5em;
+}
+
+.snippet:not(:last-child) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+}
+
+.snippet__metadata {
+  font-size: small;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.snippet__text {
+}
+
+button {
+  font-size: x-large;
+}
+
+.alert {
+  border: 3px solid rgba(255, 0, 0, 0.2);
+  background: rgba(255, 0, 0, 0.05);
+  margin: 15px;
+  padding: 15px;
+}

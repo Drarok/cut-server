@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Share Server</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  {{#if error}}
+    <div class="alert">
+      {{error}}
+    </div>
+  {{/if}}
+
+  <form method="post">
+    <label class="form__row">
+      <textarea class="form__row__textarea" name="text"></textarea>
+    </label>
+
+    <div class="form__row">
+      <button type="submit">Send</button>
+    </div>
+
+    <div class="alert">
+      {{#each snippets}}
+        <div class="snippet">
+          <div class="snippet__metadata">{{this.createdAt}}</div>
+          <div class="snippet__text">{{this.text}}</div>
+        </div>
+      {{/each}}
+    </div>
+
+    <div class="form__row">
+      <button type="submit" name="reset" value="{{clearToken}}">Reset</button>
+    </div>
+  </form>
+</body>
+</html>
