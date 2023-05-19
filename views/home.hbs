@@ -16,22 +16,22 @@
   <form method="post">
     <label class="form__row">
       <textarea class="form__row__textarea" name="text"></textarea>
+      <button type="submit">Send</button>
     </label>
 
     <div class="form__row">
-      <button type="submit">Send</button>
-    </div>
-
-    <div class="alert">
-      {{#each snippets}}
-        <div class="snippet">
-          <div class="snippet__metadata">{{this.createdAt}}</div>
-          <div class="snippet__text">{{this.text}}</div>
-        </div>
-      {{/each}}
-    </div>
-
-    <div class="form__row">
+      <div class="snippets">
+        {{#if snippets}}
+          {{#each snippets}}
+            <div class="snippet">
+              <div class="snippet__text">{{this.text}}</div>
+              <div class="snippet__metadata">{{this.createdAt}}</div>
+            </div>
+          {{/each}}
+        {{else}}
+          There are no snippets to display.
+        {{/if}}
+      </div>
       <button type="submit" name="reset" value="{{clearToken}}">Reset</button>
     </div>
   </form>

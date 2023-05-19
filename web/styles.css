@@ -1,6 +1,13 @@
+:root {
+  --site-background-color: #EEEEEE;
+  --element-border-color: rgba(180, 180, 180, 1);
+  --standard-border: 1px solid var(--element-border-color);
+  --standard-border-radius: 5px;
+}
+
 html {
   box-sizing: border-box;
-  background: #EEEEEE;
+  background: var(--site-background-color);
   font-family: -apple-system, "Helvetica Neue", "Helvetica", sans-serif;
 }
 
@@ -16,36 +23,59 @@ label {
 
 .form__row {
   display: block;
-  padding: 15px;
+  margin: 0;
+  padding: 0.5rem 1rem;
 }
 
 .form__row__textarea {
-  font-size: inherit;
+  background: white;
   min-width: 100%;
   min-height: 5em;
 }
 
+.alert, .snippets {
+  border: 3px solid black;
+  background: white;
+}
+
+.alert {
+  border-color: rgba(255, 0, 0, 0.2);
+  background: rgba(255, 0, 0, 0.05);
+  margin: 1rem;
+  padding: 0.5rem;
+}
+
+.snippets {
+  border-color: rgba(180, 180, 220, 0.4);
+  background: rgba(245, 245, 255, 1);
+  overflow-wrap: break-word;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  padding: 0.25rem 0.5rem;
+}
+
+
+.snippet {
+  padding: 0.5rem 0;
+}
+
 .snippet:not(:last-child) {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  margin-bottom: 15px;
-  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(180, 180, 220, 0.4);
 }
 
 .snippet__metadata {
   font-size: small;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .snippet__text {
 }
 
-button {
+button,
+textarea {
+  border: var(--standard-border);
+  border-radius: var(--standard-border-radius);
   font-size: x-large;
-}
-
-.alert {
-  border: 3px solid rgba(255, 0, 0, 0.2);
-  background: rgba(255, 0, 0, 0.05);
-  margin: 15px;
-  padding: 15px;
+  margin: 0;
+  padding: 0.25rem 0.5rem;
 }
