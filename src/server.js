@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 const snippetsService = require('./snippets');
 
-app.all('/', async (req, res) => {
+app.post('/', async (req, res) => {
   const resetToken = req.body.reset || '';
   const text = req.body.text || '';
   let error = '';
@@ -25,7 +25,8 @@ app.all('/', async (req, res) => {
     try {
       await snippetsService.clearSnippets(resetToken);
     } catch (e) {
-      error = e.message;
+      // TODO: This is really brittle.
+      app.locals.error = e.message;
     }
   }
 
@@ -34,11 +35,18 @@ app.all('/', async (req, res) => {
     await snippetsService.createSnippet(text);
   }
 
+  res.redirect(303, '/');
+});
+
+app.get('/', async (req, res) => {
   const snippets = snippetsService.getSnippets();
   const clearToken = snippetsService.getClearToken();
 
+  // TODO: This is really brittle.
+  const { error } = app.locals;
+  app.locals.error = '';
+
   res.render('home', {
-    text,
     error,
     snippets: await snippets,
     clearToken: await clearToken,
