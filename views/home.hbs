@@ -24,7 +24,7 @@
         {{#if snippets}}
           {{#each snippets}}
             <div class="snippet">
-              <div class="snippet__text">{{this.text}}</div>
+              <div class="snippet__text">{{{this.html}}}</div>
               <div class="snippet__metadata">{{this.createdAt}}</div>
             </div>
           {{/each}}
